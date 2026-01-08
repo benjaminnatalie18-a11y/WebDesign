@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BenjyMikael | Web Design & Future Infrastructure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS DESIGN SYSTEM */
+        :root {
+            --white: #ffffff;
+            --black: #000000;
+            --sky-blue: #00BFFF;
+            --gray-light: #f9f9f9;
+            --sky-glow: rgba(0, 191, 255, 0.4);
+            --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo-box { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--black); }
+        .nav-logo { height: 45px; border-radius: 4px; }
+        .logo-text { font-weight: 900; letter-spacing: -1px; text-transform: uppercase; }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 8%;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 { font-size: clamp(3rem, 10vw, 6.5rem); font-weight: 900; line-height: 0.85; letter-spacing: -4px; margin-bottom: 2rem; }
+        h1 span { color: var(--sky-blue); }
+
+        .hero p { font-size: 1.4rem; max-width: 600px; color: #444; margin-bottom: 3rem; border-left: 5px solid var(--sky-blue); padding-left: 25px; }
+
+        /* Buttons */
+        .cta-btn {
+            display: inline-block;
+            background: var(--sky-blue);
+            color: var(--white);
+            padding: 1.2rem 3rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px var(--sky-glow);
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover { transform: translateY(-5px); background: var(--black); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+
+        /* Portfolio Gallery */
+        .work { padding: 100px 8%; background: var(--gray-light); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 50px; }
+        
+        .project {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 4px;
+            background: var(--black);
+        }
+
+        .project img { 
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.8; 
+            transition: var(--transition); filter: grayscale(100%); 
+        }
+
+        .project:hover img { transform: scale(1.05); opacity: 1; filter: grayscale(0%); }
+
+        .project-label {
+            position: absolute; bottom: 30px; left: 30px; color: var(--white);
+        }
+
+        /* Mission & Future */
+        .vision { padding: 120px 8%; background: var(--black); color: var(--white); }
+        .vision-content { max-width: 900px; }
+        .tag { color: var(--sky-blue); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; }
+        .vision h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 20px 0; line-height: 1.1; }
+        
+        .future-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px; }
+        .future-grid h3 { color: var(--sky-blue); margin-bottom: 15px; }
+
+        /* Contact Form */
+        .contact { padding: 100px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+        .form-group { margin-bottom: 25px; }
+        input, textarea { width: 100%; padding: 15px 0; border: none; border-bottom: 2px solid #eee; font-family: inherit; font-size: 1rem; transition: var(--transition); }
+        input:focus, textarea:focus { outline: none; border-bottom-color: var(--sky-blue); }
+        .submit-btn { width: 100%; padding: 20px; background: var(--black); color: var(--white); border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: var(--transition); }
+        .submit-btn:hover { background: var(--sky-blue); color: var(--black); }
+
+        @media (max-width: 900px) {
+            .contact, .future-grid { grid-template-columns: 1fr; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo-box">
+            <img src="https://i.postimg.cc/dtT6qVVg/a-sleek-futuristic-logo-design-featuring-WFTQe-Asa-SQ2zs5yah-D-s-WA-m2Pv-MKCQR86ys-Lb52W5h-PQ.jpg" alt="BM Logo" class="nav-logo">
+            <span class="logo-text">BenjyMikael</span>
+        </a>
+        <a href="#contract" style="font-weight: 700; text-decoration: none; color: var(--sky-blue); font-size: 0.8rem; letter-spacing: 1px;">[ APPLY FOR CONTRACT ]</a>
+    </nav>
+
+    <header class="hero">
+        <h1>ENGINEERING THE<br>NEXT <span>DIGITAL ERA.</span></h1>
+        <p>BenjyMikael Web Design builds high-resolution revenue engines for brands that refuse to be forgotten.</p>
+        <a href="#contract" class="cta-btn">Initialize Partnership</a>
+    </header>
+
+    <section class="work" id="work">
+        <h2 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 4px; color: #888;">Proven Architecture</h2>
+        <div class="grid">
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200" alt="Fintech Project">
+                <div class="project-label"><h3>Global Fintech v1</h3><p>System Architecture</p></div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200" alt="SaaS Project">
+                <div class="project-label"><h3>Aether AI</h3><p>UI/UX Deployment</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision">
+        <div class="vision-content">
+            <span class="tag">Mission Statement</span>
+            <h2>"To dismantle digital mediocrity and provide the infrastructure for visionaries to lead the future."</h2>
+            
+            <div class="future-grid">
+                <div class="future-item">
+                    <h3>Sustainable Impact</h3>
+                    <p>Our 2026 roadmap prioritizes low-energy code architecture, ensuring your digital growth doesn't come at a cost to the planet.</p>
+                </div>
+                <div class="future-item">
+                    <h3>Universal Intelligence</h3>
+                    <p>Every contract we sign supports our open-source initiative to provide elite web tools for education and non-profit global scaling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contract">
+        <div>
+            <h2 style="font-size: 3.5rem; line-height: 1; letter-spacing: -2px; margin-bottom: 30px;">READY TO CLAIM<br>YOUR SPACE?</h2>
+            <p>Our project calendar is strictly limited to 2 partnerships per month to ensure elite craftsmanship. Apply now to secure your slot.</p>
+        </div>
+        
+        <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Name & Surname" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="company" placeholder="Company Name" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Business Email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="enquiry" placeholder="Briefly describe your enquiry" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Business Contract</button>
+        </form>
+    </section>
+
+    <footer style="padding: 50px 8%; border-top: 1px solid #eee; text-align: center; font-size: 0.8rem; color: #888;">
+        &copy; 2026 BENJYMIKAEL WEB DESIGN. ALL RIGHTS RESERVED.
+    </footer>
+
+    <script>
+        // Smooth reveal logic for 2026 interaction
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = "0";
+            section.style.transform = "translateY(30px)";
+            section.style.transition = "all 0.8s ease-out";
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
